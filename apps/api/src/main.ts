@@ -20,6 +20,7 @@ async function bootstrap() {
   );
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('/api');
+  app.enableCors();
 
   const options = new DocumentBuilder()
     .setTitle('Cats example')
