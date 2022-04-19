@@ -6,18 +6,18 @@ import { Repository } from 'typeorm';
 
 const userArray = [
   {
-    firstName: 'firstName #1',
-    lastName: 'lastName #1',
+    email: 'email #1',
+    password: 'password #1',
   },
   {
-    firstName: 'firstName #2',
-    lastName: 'lastName #2',
+    email: 'email #2',
+    password: 'password #2',
   },
 ];
 
 const oneUser = {
-  firstName: 'firstName #1',
-  lastName: 'lastName #1',
+  email: 'email #1',
+  password: 'password #1',
 };
 
 describe('UserService', () => {
@@ -52,14 +52,14 @@ describe('UserService', () => {
   describe('create()', () => {
     it('should successfully insert a user', () => {
       const oneUser = {
-        firstName: 'firstName #1',
-        lastName: 'lastName #1',
+        email: 'email #1',
+        password: 'password #1',
       };
 
       expect(
         service.create({
-          firstName: 'firstName #1',
-          lastName: 'lastName #1',
+          email: 'email #1',
+          password: 'password #1',
         }),
       ).resolves.toEqual(oneUser);
     });

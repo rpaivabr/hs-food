@@ -1,10 +1,11 @@
-import { Body, CacheInterceptor, ClassSerializerInterceptor, Controller, Delete, Get, Param, Post, UseInterceptors } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Param, Post, UseInterceptors } from '@nestjs/common';
+import { Public } from '../common/decorators/public.decorator';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
 import { UsersService } from './users.service';
 
 @Controller('users')
-@UseInterceptors(CacheInterceptor)
+// @UseInterceptors(CacheInterceptor)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
@@ -14,6 +15,7 @@ export class UsersController {
   }
 
   @Get()
+  @Public()
   @UseInterceptors(ClassSerializerInterceptor)
   findAll(): Promise<User[]> {
     return this.usersService.findAll();

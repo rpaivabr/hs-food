@@ -1,5 +1,6 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
+import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HttpCacheInterceptor } from './interceptors/http-cache.interceptor';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
@@ -22,6 +23,7 @@ import { TransformInterceptor } from './interceptors/transform.interceptor';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ScheduleModule.forRoot()
   ],
   providers: [
     { provide: APP_INTERCEPTOR, useClass: TransformInterceptor },
