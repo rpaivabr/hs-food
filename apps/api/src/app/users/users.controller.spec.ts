@@ -4,8 +4,8 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 
 const createUserDto: CreateUserDto = {
-  firstName: 'firstName #1',
-  lastName: 'lastName #1',
+  email: 'email #1',
+  password: 'password #1',
 };
 
 describe('UsersController', () => {
@@ -27,18 +27,18 @@ describe('UsersController', () => {
               ),
             findAll: jest.fn().mockResolvedValue([
               {
-                firstName: 'firstName #1',
-                lastName: 'lastName #1',
+                email: 'email #1',
+                password: 'password #1',
               },
               {
-                firstName: 'firstName #2',
-                lastName: 'lastName #2',
+                email: 'email #2',
+                password: 'password #2',
               },
             ]),
             findOne: jest.fn().mockImplementation((id: string) =>
               Promise.resolve({
-                firstName: 'firstName #1',
-                lastName: 'lastName #1',
+                email: 'email #1',
+                password: 'password #1',
                 id,
               }),
             ),
@@ -77,8 +77,8 @@ describe('UsersController', () => {
   describe('findOne()', () => {
     it('should find a user', () => {
       expect(usersController.findOne('1')).resolves.toEqual({
-        firstName: 'firstName #1',
-        lastName: 'lastName #1',
+        email: 'email #1',
+        password: 'password #1',
         id: '1',
       });
       expect(usersService.findOne).toHaveBeenCalled();
