@@ -1,0 +1,34 @@
+{
+  "root": "apps/live-attendant-e2e",
+  "sourceRoot": "apps/live-attendant-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/live-attendant-e2e/cypress.json",
+        "devServerTarget": "live-attendant:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "live-attendant:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/live-attendant-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": [
+    "live-attendant"
+  ]
+}

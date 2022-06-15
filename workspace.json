@@ -1,6 +1,12 @@
 {
   "version": 2,
   "projects": {
-    "api": "apps/api"
+    "api": "apps/api",
+    "auth": "libs/auth",
+    "live-attendant": "apps/live-attendant",
+    "live-attendant-e2e": "apps/live-attendant-e2e",
+    "live-menu": "apps/live-menu",
+    "live-menu-e2e": "apps/live-menu-e2e",
+    "ui": "libs/ui"
   }
 }
