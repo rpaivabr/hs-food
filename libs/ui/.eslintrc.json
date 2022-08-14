@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "hs-food",
+            "prefix": "hsf",
             "style": "kebab-case"
           }
         ]

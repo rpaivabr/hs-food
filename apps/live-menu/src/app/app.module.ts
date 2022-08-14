@@ -6,6 +6,7 @@ import { UiModule } from '@hs-food/ui';
 import { AuthModule } from '@hs-food/auth';
 
 import { AppComponent } from './app.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,9 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     UiModule,
     AuthModule,
+  ],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } },
   ],
   bootstrap: [AppComponent],
 })

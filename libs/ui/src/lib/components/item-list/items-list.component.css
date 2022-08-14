@@ -1,0 +1,17 @@
+.item {
+  margin: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.item--image {
+  width: 30%;
+}
+
+.item--image > img {
+  width: 100%;
+}
+
+.item--text {
+  flex: 1;
+}

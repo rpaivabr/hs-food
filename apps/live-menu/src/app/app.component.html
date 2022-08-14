@@ -1,6 +1,8 @@
-<hsf-header [title]="title"></hsf-header>
+<hsf-header [title]="title" [icons]="icons" (whenClick)="iconClicked($event)"></hsf-header>
 
-<button mat-raised-button color="primary">Basic</button>
+<!-- <button mat-raised-button color="accent">Basic</button> -->
 
-{{ users$ | async | json }}
-{{ login$ | async | json }}
+<hsf-items-list [items]="items"></hsf-items-list>
+
+<!-- {{ users$ | async | json }}
+{{ login$ | async | json }} -->

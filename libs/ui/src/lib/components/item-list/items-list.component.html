@@ -1,0 +1,16 @@
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab *ngFor="let category of itemsPerCategory" [label]="category[0]">
+    <mat-card class="item" *ngFor="let item of category[1]">
+      <div class="item--text">
+        <h2>{{item.name}}</h2>
+        <p>{{item.description}}</p>
+        <h3>{{item.price | currency:'BRL'}}</h3>
+      </div>
+      <div class="item--image">
+        <img [src]="item.imageUrl" />
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+

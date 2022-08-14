@@ -1,5 +1,13 @@
-import { Exclude } from 'class-transformer';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Exclude, Transform } from 'class-transformer';
+import { Role, roles } from '../common/enums/role.enum';
+import { toLocaleTime } from '../common/helpers/timezone.helper';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -18,4 +26,15 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column({ default: 'user' })
+  roles: string;
+
+  @Transform(toLocaleTime)
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @Transform(toLocaleTime)
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

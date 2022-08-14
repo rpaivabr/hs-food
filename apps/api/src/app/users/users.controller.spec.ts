@@ -6,6 +6,7 @@ import { UsersService } from './users.service';
 const createUserDto: CreateUserDto = {
   email: 'email #1',
   password: 'password #1',
+  fullname: '',
 };
 
 describe('UsersController', () => {

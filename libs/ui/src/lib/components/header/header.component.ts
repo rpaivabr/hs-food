@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'hsf-header',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() title = '';
+  @Input() icons: string[] = [];
+  @Output() whenClick = new EventEmitter<string>();
+
+  handleClick(icon: string) {
+    this.whenClick.emit(icon);
+  }
 }
