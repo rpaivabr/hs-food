@@ -1,0 +1,14 @@
+<mat-card class="item">
+  <div class="item--text item--empty" *ngIf="itemsSortedByNameAsc.length === 0">
+    Nenhum item adicionado ainda
+  </div>
+  <div class="item--text" *ngFor="let item of itemsSortedByNameAsc">
+    <span>{{item.name}}</span>
+    <span>{{item.price | currency:'BRL'}}</span>
+  </div>
+  <div class="item--total">
+    <span>Total:</span>
+    <span>{{total | currency:'BRL'}}</span>
+  </div>
+</mat-card>
+

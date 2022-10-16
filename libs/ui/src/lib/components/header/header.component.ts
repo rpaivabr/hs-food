@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class HeaderComponent {
   @Input() title = '';
   @Input() icons: string[] = [];
+  @Input() notify = false;
   @Output() whenClick = new EventEmitter<string>();
 
   handleClick(icon: string) {

@@ -1,0 +1,30 @@
+<hsf-header [title]="title" [icons]="icons" (whenClick)="goToMenu()"></hsf-header>
+
+<ng-container *ngIf="ready">
+
+  <div class="input-group">
+    <button
+      *ngIf="!bill; else hasBill"
+      mat-raised-button
+      color="primary"
+      (click)="openBill()"
+    >Abrir</button>
+    <ng-template #hasBill>
+      <mat-form-field appearance="fill">
+        <mat-label>Cardápio</mat-label>
+        <mat-select [formControl]="itemControl">
+          <mat-optgroup *ngFor="let category of itemsPerCategory" [label]="category[0]">
+            <mat-option *ngFor="let item of category[1]" [value]="item.id">
+              {{item.name}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="includeItem()">Incluir</button>
+      <button mat-raised-button color="primary" (click)="closeBill()">Fechar</button>
+    </ng-template>
+  </div>
+
+  <hsf-bill-list [bill]="bill" *ngIf="bill"></hsf-bill-list>
+
+</ng-container>

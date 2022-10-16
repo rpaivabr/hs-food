@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background: lightyellow;
+}
+
+.item--text {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2;
+}
+
+.item--empty {
+  justify-content: center;
+  font-style: italic;
+}
+
+.item--total {
+  border-top: 1px solid black;
+  margin-top: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}

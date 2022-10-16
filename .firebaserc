@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "hs-food-tcc"
+  },
+  "targets": {
+    "hs-food-tcc": {
+      "hosting": {
+        "live-menu": [
+          "live-menu-hs-food-tcc"
+        ],
+        "live-attendant": [
+          "live-attendant-hs-food-tcc"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

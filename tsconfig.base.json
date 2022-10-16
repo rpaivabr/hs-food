@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hs-food/auth": ["libs/auth/src/index.ts"],
+      "@hs-food/api": ["libs/api/src/index.ts"],
       "@hs-food/ui": ["libs/ui/src/index.ts"]
     }
   },

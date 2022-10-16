@@ -1,0 +1,35 @@
+{
+  "functions": {
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ],
+    "source": "dist/apps/api",
+    "runtime": "nodejs16"
+  },
+  "hosting": [
+    {
+      "target": "live-menu",
+      "public": "dist/apps/live-menu",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "live-attendant",
+      "public": "dist/apps/live-attendant",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+
+}

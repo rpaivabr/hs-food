@@ -1,0 +1,10 @@
+<mat-card
+  *ngFor="let table of billsPerTable"
+  class="item"
+  [class.item--active]="table[1].status"
+  [matBadge]="table[1].notify ? 'priority_high' : ''"
+  matBadgeSize="small"
+  (click)="handleClick({ code: table[1].code || '', table: table[0] })"
+>
+  <span>Mesa {{ table[0] }}</span>
+</mat-card>

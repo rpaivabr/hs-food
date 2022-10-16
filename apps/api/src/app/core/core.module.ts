@@ -11,14 +11,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'test',
+      database: process.env.DATABASE_NAME || 'test',
       autoLoadEntities: true,
       synchronize: true,
     }),
-    ScheduleModule.forRoot()
+    ScheduleModule.forRoot(),
   ],
   providers: [
-    { provide: APP_INTERCEPTOR, useClass: ClassSerializerInterceptor }
+    { provide: APP_INTERCEPTOR, useClass: ClassSerializerInterceptor },
   ],
 })
 export class CoreModule {}

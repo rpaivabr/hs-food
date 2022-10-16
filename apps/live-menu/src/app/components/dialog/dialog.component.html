@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Código da comanda</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Inserir comanda</mat-label>
+    <input matInput type="text" #code />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button color="accent" (click)="close(code.value)">Confirmar</button>
+</div>

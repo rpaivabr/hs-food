@@ -1,6 +1,10 @@
 <mat-toolbar color="primary">
   <span style="flex: 1">{{ title }}</span>
   <button *ngFor="let icon of icons" mat-icon-button (click)="handleClick(icon)">
-    <mat-icon>{{ icon }}</mat-icon>
+    <mat-icon
+      [matBadge]="notify && icon === 'receipt_long' ? 'priority_high' : ''"
+      matBadgeSize="small"
+      matBadgeColor="warn"
+    >{{ icon }}</mat-icon>
   </button>
 </mat-toolbar>

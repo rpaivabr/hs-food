@@ -1,33 +1,38 @@
-import * as express from 'express';
-import { http } from '@google-cloud/functions-framework'
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { environment } from './environments/environment';
 import { Logger } from '@nestjs/common';
+import * as express from 'express';
+import { onRequest } from 'firebase-functions/v2/https';
 
 export const createNestServer = async (expressInstance) => {
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressInstance));
+  const app = await NestFactory.create(
+    AppModule,
+    new ExpressAdapter(expressInstance)
+  );
   app.setGlobalPrefix('api');
   app.enableCors();
 
   return app.init();
-}
+};
 
 const server = express();
 
 createNestServer(server)
-.then((v) => {
-  if (environment.production) {
-    Logger.log('🚀 Starting production server...')
-  } else {
-    Logger.log(`🚀 Starting development server on http://localhost:${process.env.PORT || 3333}`)
-    v.listen(process.env.PORT || 3333)
-  }
-})
-.catch((err) => Logger.error('Nest broken', err))
+  .then((v) => {
+    const port = process.env.PORT || 8080;
+    const host = process.env.HOST || '0.0.0.0';
+    Logger.log(
+      `🚀 Starting ${
+        environment.production ? 'production' : 'development'
+      } server on http://${host}:${port}`
+    );
+    v.listen(port, host);
+  })
+  .catch((err) => Logger.error('Nest broken', err));
 
-http('apiNEST', server)
+export const api = onRequest(server);
 
 // import { NestFactory } from '@nestjs/core';
 // import { AppModule } from './app/app.module';
@@ -39,8 +44,6 @@ http('apiNEST', server)
 //   await app.listen(port, '0.0.0.0');
 // }
 // bootstrap();
-
-
 
 // import { Logger, ValidationPipe } from '@nestjs/common';
 // import { NestFactory } from '@nestjs/core';

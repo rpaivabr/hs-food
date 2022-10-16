@@ -14,7 +14,10 @@
         "tsConfig": "apps/api/tsconfig.app.json",
         "assets": [
           "apps/api/src/assets"
-        ]
+        ],
+        "externalDependencies": "all",
+        "outputFileName": "index.js",
+        "generatePackageJson": true
       },
       "configurations": {
         "production": {
